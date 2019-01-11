@@ -33,11 +33,11 @@ void SystemClock_Config(void)
 
 SPI_HandleTypeDef hspi2;
 /* SPI2 init function */
-static void MX_SPI2_Init(void)
+static void MX_SPI1_Init(void)
 {
 
   /* SPI2 parameter configuration*/
-  hspi2.Instance = SPI2;
+  hspi2.Instance = SPI1;
   hspi2.Init.Mode = SPI_MODE_MASTER;
   hspi2.Init.Direction = SPI_DIRECTION_1LINE;
   hspi2.Init.DataSize = SPI_DATASIZE_8BIT;
@@ -60,7 +60,7 @@ int main(void)
   HAL_Init();
   SystemClock_Config();
   tikatikaInit();
-  MX_SPI2_Init();
+  MX_SPI1_Init();
   ssd1306_TestAll();
   tikatika();
 }
