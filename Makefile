@@ -14,6 +14,7 @@
 # target
 ######################################
 TARGET = bl1nk
+TARGET_BOARD = avtokyo2017
 
 
 ######################################
@@ -51,7 +52,8 @@ Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c \
 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c \
 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c \
 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c \
-Src/system_stm32f1xx.c
+Src/system_stm32f1xx.c \
+Boards/$(TARGET_BOARD)/src/tikatika.c \
 
 # ASM sources
 ASM_SOURCES =  \
@@ -114,7 +116,8 @@ C_INCLUDES =  \
 -IDrivers/STM32F1xx_HAL_Driver/Inc/Legacy \
 -IDrivers/CMSIS/Device/ST/STM32F1xx/Include \
 -IDrivers/CMSIS/Include \
--IDrivers/CMSIS/Include
+-IDrivers/CMSIS/Include \
+-IBoards/$(TARGET_BOARD)/include \
 
 
 # compile gcc flags
