@@ -54,6 +54,9 @@ Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c \
 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c \
 Src/system_stm32f1xx.c \
 Boards/$(TARGET_BOARD)/src/tikatika.c \
+Drivers/ssd1306/ssd1306/ssd1306_fonts.c \
+Drivers/ssd1306/ssd1306/ssd1306_tests.c \
+Drivers/ssd1306/ssd1306/ssd1306.c \
 
 # ASM sources
 ASM_SOURCES =  \
@@ -118,6 +121,7 @@ C_INCLUDES =  \
 -IDrivers/CMSIS/Include \
 -IDrivers/CMSIS/Include \
 -IBoards/$(TARGET_BOARD)/include \
+-IDrivers/ssd1306/ssd1306 \
 
 
 # compile gcc flags
