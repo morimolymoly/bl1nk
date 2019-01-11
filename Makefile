@@ -52,6 +52,8 @@ Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c \
 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c \
 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c \
 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c \
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c \
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi_ex.c \
 Src/system_stm32f1xx.c \
 Boards/$(TARGET_BOARD)/src/tikatika.c \
 Drivers/ssd1306/ssd1306/ssd1306_fonts.c \

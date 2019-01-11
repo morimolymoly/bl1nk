@@ -41,43 +41,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-/* USER CODE BEGIN Includes */
 
-/* USER CODE END Includes */
-
-/* Private typedef -----------------------------------------------------------*/
-/* USER CODE BEGIN TD */
-
-/* USER CODE END TD */
-
-/* Private define ------------------------------------------------------------*/
-/* USER CODE BEGIN Define */
-
-/* USER CODE END Define */
-
-/* Private macro -------------------------------------------------------------*/
-/* USER CODE BEGIN Macro */
-
-/* USER CODE END Macro */
-
-/* Private variables ---------------------------------------------------------*/
-/* USER CODE BEGIN PV */
-
-/* USER CODE END PV */
-
-/* Private function prototypes -----------------------------------------------*/
-/* USER CODE BEGIN PFP */
-
-/* USER CODE END PFP */
-
-/* External functions --------------------------------------------------------*/
-/* USER CODE BEGIN ExternalFunctions */
-
-/* USER CODE END ExternalFunctions */
-
-/* USER CODE BEGIN 0 */
-
-/* USER CODE END 0 */
 /**
   * Initializes the Global MSP.
   */
@@ -100,6 +64,7 @@ void HAL_MspInit(void)
 
   /* USER CODE END MspInit 1 */
 }
+
 void HAL_SPI_MspInit(SPI_HandleTypeDef *hspi)
 {
 
@@ -111,15 +76,21 @@ void HAL_SPI_MspInit(SPI_HandleTypeDef *hspi)
     /* USER CODE END SPI2_MspInit 0 */
     /* Peripheral clock enable */
     __HAL_RCC_SPI2_CLK_ENABLE();
+    __HAL_RCC_GPIOA_CLK_ENABLE();
 
     /**SPI2 GPIO Configuration
-    PB13     ------> SPI2_SCK
-    PB15     ------> SPI2_MOSI
+    PA5     ------> SPI2_SCK
+    PA7     ------> SPI2_MOSI
+    #define OLED_MOSI  PA7
+    #define OLED_CLK   PA5
+    #define OLED_DC     PA6
+    #define OLED_CS     PA4
+    #define OLED_RESET  PA3
     */
-    GPIO_InitStruct.Pin = GPIO_PIN_13 | GPIO_PIN_15;
+    GPIO_InitStruct.Pin = GPIO_PIN_5 | GPIO_PIN_7;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
-    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
     /* USER CODE BEGIN SPI2_MspInit 1 */
 
@@ -142,15 +113,12 @@ void HAL_SPI_MspDeInit(SPI_HandleTypeDef *hspi)
     PB13     ------> SPI2_SCK
     PB15     ------> SPI2_MOSI
     */
-    HAL_GPIO_DeInit(GPIOB, GPIO_PIN_13 | GPIO_PIN_15);
+    HAL_GPIO_DeInit(GPIOA, GPIO_PIN_13 | GPIO_PIN_15);
 
     /* USER CODE BEGIN SPI2_MspDeInit 1 */
 
     /* USER CODE END SPI2_MspDeInit 1 */
   }
 }
-/* USER CODE BEGIN 1 */
-
-/* USER CODE END 1 */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
